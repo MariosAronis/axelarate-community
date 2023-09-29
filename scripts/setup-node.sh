@@ -94,7 +94,7 @@ parse_params() {
     fi
 
     if [ -z "${axelar_core_version}" ]; then
-        axelar_core_version="$(curl -s https://raw.githubusercontent.com/axelarnetwork/axelar-docs/main/pages/resources/"${network}".mdx | grep axelar-core | cut -d \` -f 4)"
+        axelar_core_version="$(curl https://docs.axelar.dev/resources/testnet | grep axelar-core | cut -d "/" -f 7 | cut -d ">" -f 4 | rev | cut -c2- | rev )"
     fi
 
     # check required params and arguments
